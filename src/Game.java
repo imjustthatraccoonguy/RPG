@@ -11,6 +11,7 @@ public class Game{
 
         scanner = new Scanner(System.in);
         System.out.print("Enter command:");
+        System.out.println("You took " + Color.red("2") + " damage.");
         String command = scanner.nextLine();
 
         Parser parser = new Parser();

@@ -1,8 +1,7 @@
 public class Item{
-    String name;
-    Boolean canPickUp;
-    String examineText;
-
+    private String name;
+    private Boolean canPickUp;
+    private String examineText;
     //Adding these variables won't do anything yet because you don't have any commands
     //to pick up or examine the items. You need something called an enum to define what
     //commands you want to be able to use, and then methods to define what the commands do.
@@ -16,5 +15,7 @@ public class Item{
         return name;
     }
 
-    //For now you can add methods like getExamineText() and stuff
+   public String getExamineText(){
+       return examineText;
+   }
 }
