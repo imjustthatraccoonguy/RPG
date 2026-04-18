@@ -20,7 +20,7 @@ public class Room{
     }
 
     public void printRoom(){
-        System.out.println(name.toUpperCase());
+        System.out.println(Color.cyan(name.toUpperCase()));
         System.out.println(roomDescription);
         printItems();
         printExits();

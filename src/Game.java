@@ -32,16 +32,16 @@ public class Game{
 
         hallway.addExit("east", bedroom);
 
-        bedroom.printRoom();
-
         scanner = new Scanner(System.in);
         Parser parser = new Parser();
 
         while(true){
+            currentRoom.printRoom();
+
             System.out.print("Enter command:");
 
             currentRoom = currentRoom.getExit(scanner.nextLine());
-            currentRoom.printRoom();
+
             //String command = scanner.nextLine();
             //parser.parseInput(command);
         }
