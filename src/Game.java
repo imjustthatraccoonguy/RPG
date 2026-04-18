@@ -1,7 +1,8 @@
 import java.util.*;
 
 public class Game{
-    Room dungeonRoom;
+    Room bedroom, hallway;
+    Room currentRoom;
     Scanner scanner;
     public static void main(String[] args){
         Game game = new Game();
@@ -23,14 +24,26 @@ public class Game{
         System.out.println(Color.green("▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮"));
         System.out.println(Color.green("▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮▮"));
 
-        dungeonRoom = new Room();
+        bedroom = new Room("Bedroom", "You are in the bedroom of your house.");
+        hallway = new Room("Hallway", "You are in the hallway of your house");
+        currentRoom = bedroom;
+
+        bedroom.addExit("west", hallway);
+
+        hallway.addExit("east", bedroom);
+
+        bedroom.printRoom();
 
         scanner = new Scanner(System.in);
-        System.out.print("Enter command:");
-        System.out.println("You took " + Color.red("2") + " damage.");
-        String command = scanner.nextLine();
-
         Parser parser = new Parser();
-        parser.parseInput(command);
+
+        while(true){
+            System.out.print("Enter command:");
+
+            currentRoom = currentRoom.getExit(scanner.nextLine());
+            currentRoom.printRoom();
+            //String command = scanner.nextLine();
+            //parser.parseInput(command);
+        }
     }
 }
