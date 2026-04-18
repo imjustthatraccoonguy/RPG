@@ -43,7 +43,7 @@ public class Room{
         for (String exit : exits.keySet()){
             returnString.append(exit).append(", ");
         }
-        if(returnString.length() > 12) returnString.delete(returnString.length()-2,returnString.length());
+        if(returnString.length() > 7) returnString.delete(returnString.length()-2,returnString.length());
 
        System.out.println(returnString.toString());
     }

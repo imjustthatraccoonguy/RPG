@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class Game{
-    Room bedroom, hallway;
+    Room bedroom, hallway, staircase, kitchen;
     Room currentRoom;
     Scanner scanner;
     public static void main(String[] args){
@@ -26,11 +26,20 @@ public class Game{
 
         bedroom = new Room("Bedroom", "You are in the bedroom of your house.");
         hallway = new Room("Hallway", "You are in the hallway of your house");
+        staircase = new Room("Staircase", "You stand in front of a staircase leading down to the first floor of your house.");
+        kitchen = new Room("Kitchen", "You are in the kitchen of your house");
         currentRoom = bedroom;
 
         bedroom.addExit("west", hallway);
 
         hallway.addExit("east", bedroom);
+        hallway.addExit("west", staircase);
+
+        staircase.addExit("east", hallway);
+        staircase.addExit("down", kitchen);
+
+        kitchen.addExit("up", staircase);
+
 
         scanner = new Scanner(System.in);
         Parser parser = new Parser();
