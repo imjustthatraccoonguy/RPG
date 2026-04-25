@@ -1,8 +1,8 @@
 import java.util.*;
 
 public class Parser{
-    public static String inputVerb;
-    public static String inputNoun;
+    public String verb;
+    public String noun;
 
     public ArrayList<String> verbs = new ArrayList<>();
 
@@ -10,19 +10,25 @@ public class Parser{
         verbs.add("go");
         verbs.add("take");
         verbs.add("look around");
-        verbs.add("examine");
         verbs.add("inventory");
+        verbs.add("help");
+        verbs.add("eat");
+        verbs.add("break");
+        verbs.add("examine");
+        verbs.add("pickup");
+        verbs.add("drop");
+        verbs.add("talkto");
     }
 
-    public void parseInput(String input){
+    public void parseInput(String input) {
         input = input.toLowerCase().trim();
-        for(String checkVerb : verbs){
-            if(input.contains(checkVerb)){
-                inputVerb = checkVerb;
-                inputNoun = input.replaceAll(checkVerb, "").trim();
+        for (String checkVerb : verbs) {
+            if (input.startsWith(checkVerb)) {
+                verb = checkVerb;
+                noun = input.replaceAll(checkVerb, "").trim();
             }
         }
-        System.out.println(inputVerb);
-        System.out.println(inputNoun);
+        System.out.println(verb);
+        System.out.println(noun);
     }
 }

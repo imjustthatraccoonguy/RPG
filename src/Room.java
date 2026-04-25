@@ -3,7 +3,6 @@ import java.util.*;
 public class Room{
     private String name;
     private String roomDescription;
-    //exits hashmap
 
     HashMap<String, Room> exits = new HashMap<>();
 
@@ -19,6 +18,10 @@ public class Room{
         exits.put(key, value);
     }
 
+    public void addItem(Item item){
+        inventory.add(item);
+    }
+
     public void printRoom(){
         System.out.println(Color.cyan(name.toUpperCase()));
         System.out.println(roomDescription);
@@ -26,6 +29,8 @@ public class Room{
         printExits();
     }
     public void printItems(){
+        if(inventory.isEmpty()) return;
+
         StringBuilder returnString = new StringBuilder("Items here: ");
 
         for (Item item : inventory) {
